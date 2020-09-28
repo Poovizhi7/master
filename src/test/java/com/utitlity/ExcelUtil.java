@@ -14,7 +14,7 @@ public class ExcelUtil {
 
 	public static Map<String, Map<String, String>> getMapData() throws IOException {
 
-		File f = new File(System.getProperty("user.dir") + "\\savings.xlsx");
+		File f = new File(System.getProperty("user.dir") + "\\TestData\\savings.xlsx");
 		FileInputStream stream = new FileInputStream(f);
 		Workbook book = new XSSFWorkbook(stream);
 		Sheet sheet = book.getSheet("Sheet1");
@@ -29,7 +29,6 @@ public class ExcelUtil {
 			System.out.println( row.getPhysicalNumberOfCells());
 			for (int j = 0; j < row.getPhysicalNumberOfCells(); j++) {
 				Cell cell1 = row.getCell(0);
-				System.out.println(cell1);
 				int cellType = cell1.getCellType();
 				if (cellType == 1) {
 					key = cell1.getStringCellValue();
